@@ -1,0 +1,225 @@
+{
+	"info": {
+		"_postman_id": "0e903d5c-4971-483e-babf-403ac6ec1276",
+		"name": "CRUD Proof",
+		"description": "API CRUD for User Entity",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Find All Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/proof/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"proof",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find User By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/proof/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"proof",
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User(s)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"first_name\": \"Jennilee\",\r\n        \"last_name\": \"Prickett\",\r\n        \"username\": \"jprickett1\",\r\n        \"password\": \"v7sQ6IX\",\r\n        \"created_at\": \"2020-08-11 21:45:00\",\r\n        \"updated_at\": null,\r\n        \"deleted_at\": null\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/proof/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"proof",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Soft Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/proof/users/soft/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"proof",
+						"users",
+						"soft",
+						"1"
+					]
+				},
+				"description": "This request deletes a user logically, but not physically."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete All Users",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/proof/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"proof",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User By Id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/proof/users/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"proof",
+						"users",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch User",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json-patch+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"op\": \"replace\",\r\n        \"path\": \"/password\",\r\n        \"value\": \"2akVc8k9s\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/proof/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"proof",
+						"users",
+						"1"
+					]
+				},
+				"description": "This request uses JSON Patch Operations"
+			},
+			"response": []
+		},
+		{
+			"name": "Put User",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json-patch+json",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\": \"Anthony\",\r\n    \"last_name\": \"Jhonson\",\r\n    \"username\": \"anthony.jhonson\",\r\n    \"password\": \"S73A187ePZOw\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/proof/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"proof",
+						"users",
+						"1"
+					]
+				},
+				"description": "This request updates a user."
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
